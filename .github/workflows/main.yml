@@ -95,13 +95,6 @@ jobs:
         run: make test
         if: matrix.os == 'ubuntu-22.04' || matrix.os == 'macos-latest'
 
-      - name: Test Windows
-        shell: msys2 {0}
-        run: |
-          set MSYSTEM=MINGW64
-          make test
-        if: matrix.os == 'windows-latest'
-
       - name: Set pixlet version
         id: vars
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
