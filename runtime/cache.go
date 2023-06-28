@@ -91,36 +91,36 @@ func scopedCacheKey(thread *starlark.Thread, key starlark.String) string {
 }
 
 func cacheGet(thread *starlark.Thread, _ *starlark.Builtin, args starlark.Tuple, kwargs []starlark.Tuple) (starlark.Value, error) {
-	var key starlark.String
+//	var key starlark.String
 
-	if err := starlark.UnpackArgs(
-		"get",
-		args, kwargs,
-		"key", &key,
-	); err != nil {
-		return nil, fmt.Errorf("unpacking arguments for cache.get: %v", err)
-	}
+//	if err := starlark.UnpackArgs(
+//		"get",
+//		args, kwargs,
+//		"key", &key,
+//	); err != nil {
+//		return nil, fmt.Errorf("unpacking arguments for cache.get: %v", err)
+//	}
 
-	cacheKey := scopedCacheKey(thread, key)
+//	cacheKey := scopedCacheKey(thread, key)
 
-	if cache == nil {
-		// no cache configured
-		return starlark.None, nil
-	}
+//	if cache == nil {
+//		// no cache configured
+//		return starlark.None, nil
+//	}
 
-	val, found, err := cache.Get(thread, cacheKey)
+//	val, found, err := cache.Get(thread, cacheKey)
 
-	if err != nil {
-		// don't fail just because cache is misbehaving
-		log.Printf("getting %s from cache: %v", cacheKey, err)
-		return starlark.None, nil
-	}
+//	if err != nil {
+//		// don't fail just because cache is misbehaving
+//		log.Printf("getting %s from cache: %v", cacheKey, err)
+//		return starlark.None, nil
+//	}
 
-	if !found {
-		return starlark.None, nil
-	}
+//	if !found {
+//		return starlark.None, nil
+//	}
 
-	return starlark.String(val), nil
+	return starlark.None, nil
 }
 
 func cacheSet(thread *starlark.Thread, _ *starlark.Builtin, args starlark.Tuple, kwargs []starlark.Tuple) (starlark.Value, error) {
