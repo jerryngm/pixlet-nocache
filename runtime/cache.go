@@ -2,7 +2,7 @@ package runtime
 
 import (
 	"fmt"
-	"log"
+	_ "log"
 	"sync"
 	"time"
 
