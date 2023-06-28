@@ -220,13 +220,13 @@ func determineResponseTTL(resp *http.Response) time.Duration {
 }
 
 func determineDeveloperTTL(req *http.Request) time.Duration {
-	ttlHeader := req.Header.Get("X-Tidbyt-Cache-Seconds")
-	if ttlHeader != "" {
-		if intValue, err := strconv.Atoi(ttlHeader); err == nil {
+//	ttlHeader := req.Header.Get("X-Tidbyt-Cache-Seconds")
+//	if ttlHeader != "" {
+//		if intValue, err := strconv.Atoi(ttlHeader); err == nil {
 			//return time.Duration(intValue) * time.Second
-			return 0
-		}
-	}
+//			return 0
+//		}
+//	}
 
 	return 0
 }
