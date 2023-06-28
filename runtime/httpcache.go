@@ -210,9 +210,9 @@ func determineResponseTTL(resp *http.Response) time.Duration {
 			// old map _is_ valid for a week, we the app only cares about it for
 			// one hour.
 			if ttl > MaxResponseTTL {
-				return MaxResponseTTL
+				return 0
 			}
-			return ttl
+			return 0
 		}
 	}
 
@@ -223,7 +223,8 @@ func determineDeveloperTTL(req *http.Request) time.Duration {
 	ttlHeader := req.Header.Get("X-Tidbyt-Cache-Seconds")
 	if ttlHeader != "" {
 		if intValue, err := strconv.Atoi(ttlHeader); err == nil {
-			return time.Duration(intValue) * time.Second
+			//return time.Duration(intValue) * time.Second
+			return 0
 		}
 	}
 
