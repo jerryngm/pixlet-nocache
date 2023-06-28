@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	MinRequestTTL    = 5 * time.Second
+	MinRequestTTL    = 0 * time.Second
 	MaxResponseTTL   = 1 * time.Hour
 	HTTPTimeout      = 5 * time.Second
 	MaxResponseBytes = 20 * 1024 * 1024 // 20MB
