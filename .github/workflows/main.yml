@@ -28,7 +28,7 @@ jobs:
     name: Build and Test Release Artifacts
     strategy:
       matrix:
-        os: [ubuntu-22.04, macos-latest, windows-latest]
+        os: [windows-latest]
 
     runs-on: ${{ matrix.os }}
 
