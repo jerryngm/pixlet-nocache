@@ -140,7 +140,7 @@ func cacheSet(thread *starlark.Thread, _ *starlark.Builtin, args starlark.Tuple,
 		return nil, fmt.Errorf("unpacking arguments for cache.set: %v", err)
 	}
 
-	cacheKey := scopedCacheKey(thread, key)
+	// cacheKey := scopedCacheKey(thread, key)
 
 	ttl64, ok := ttl.Int64()
 	if !ok {
@@ -152,7 +152,8 @@ func cacheSet(thread *starlark.Thread, _ *starlark.Builtin, args starlark.Tuple,
 	}
 
 	if ttl64 == 0 {
-		ttl64 = DefaultExpirationSeconds
+		// ttl64 = DefaultExpirationSeconds
+		ttl64 = 0
 	}
 
 	if cache == nil {
@@ -160,10 +161,10 @@ func cacheSet(thread *starlark.Thread, _ *starlark.Builtin, args starlark.Tuple,
 		return starlark.None, nil
 	}
 
-	err := cache.Set(thread, cacheKey, []byte(val.GoString()), ttl64)
-	if err != nil {
-		log.Printf("setting %s in cache: %v", cacheKey, err)
-	}
+	//err := cache.Set(thread, cacheKey, []byte(val.GoString()), ttl64)
+	//if err != nil {
+	//	log.Printf("setting %s in cache: %v", cacheKey, err)
+	//}
 
 	return starlark.None, nil
 }
